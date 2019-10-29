@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -47,7 +48,21 @@ public class Main {
                }
            }
        }
-        System.out.println(newS);
+        Random r=new Random();
+        int random1=r.nextInt(2);
+        int random2=r.nextInt(3);
+
+
+       String [] hedges={"Please tell me more ","Many of my patients tell me the same thing ", "It is getting late, maybe we had better quit "};
+
+       String[] qualifiers={"Why do you say that ", "You seem to think that ","So, you are concerned that "};
+        if( random1==1){
+            System.out.println(hedges[random2]);
+        }else{
+            System.out.println( qualifiers[random2]+ newS);
+        }
+
+
 
         }
 
