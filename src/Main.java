@@ -1,11 +1,14 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
+    public static HashMap<String, String> myMap = new HashMap<String, String>();
     public static void main(String[] args) {
         Scanner myVar = new Scanner(System.in);
         System.out.println("Good Morning? what is your problem today?Enter your response here or press q to quite.");
         String answer = myVar.nextLine();
-        System.out.println(answer);
+        wordSwitch(answer);
+
         if(answer.equalsIgnoreCase("q")){
             quit();
         }
@@ -21,7 +24,7 @@ public class Main {
         while (!input.equalsIgnoreCase("q")) {
             System.out.println("Enter your response here or Q to quit:");
             input = myVar.nextLine();
-            System.out.println(input);
+            wordSwitch(input);
 
         }
         quit();
@@ -31,5 +34,22 @@ public class Main {
             System.out.println("Bye bye!!! See you next time.");
 
         }
+    public static void wordSwitch(String sentence) {
+        String newS=sentence;
+        myMap.put("i","you");
+        myMap.put("me","you");
+        myMap.put("am","are");
+        myMap.put("my","your");
+       for(String word:sentence.split(" ")){
+           for(String key:myMap.keySet()) {
+               if (word.equalsIgnoreCase(key)) {
+                   newS = newS.replace(word, myMap.get(word));
+               }
+           }
+       }
+        System.out.println(newS);
+
+        }
+
     }
 
